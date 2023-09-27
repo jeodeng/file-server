@@ -3,10 +3,10 @@
  */
 
 module.exports = {
-    name: 'wangEditor-server',
+    name: 'file-server',
     script: 'bin/www.js',
     watch: false,
-    instances: 1,
+    instances: 2,
     error_file: './logs/err.log',
     out_file: './logs/out.log',
     log_date_format: 'YYYY-MM-DD HH:mm:ss Z', // Z 表示使用当前时区的时间格式

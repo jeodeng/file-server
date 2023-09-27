@@ -81,11 +81,18 @@ function saveFiles(req, time = 0) {
                 // 图片名称和路径
                 const fileName = genRandomFileName(file.name || name) // 为文件名增加一个随机数，防止同名文件覆盖
                 const fullFileName = path.join(storePath, fileName)
+
                 // 将临时文件保存为正式文件
-                fs.renameSync(tempFilePath, fullFileName)
+                fs.copyFileSync(tempFilePath, fullFileName)
                 // 存储链接
                 const url = `${PROTOCOL}://${IP}:${PORT}/${FILE_FOLDER}/${fileName}`
-                imgLinks.push({ url, alt: fileName, href: url })
+                imgLinks.push({
+                    path: `/${FILE_FOLDER}/${fileName}`,
+                    domain: `${PROTOCOL}://${IP}:${PORT}`,
+                    url,
+                    alt: fileName,
+                    href: url
+                })
             })
 
             // 返回结果

@@ -84,5 +84,5 @@ function onListening() {
     var addr = server.address()
     var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
     debug('Listening on ' + bind)
-    console.log(`http://127.0.0.1:${port}/api/test`)
+    console.log(`file server is on ${PORT}`)
 }
